@@ -29,9 +29,6 @@ IPC_MESSAGE_ROUTED0(AtomAutofillFrameHostMsg_HidePopup)
 IPC_MESSAGE_ROUTED1(AtomAutofillFrameMsg_AcceptSuggestion,
                     base::string16 /* suggestion */)
 
-// Update renderer process preferences.
-IPC_MESSAGE_CONTROL1(AtomMsg_UpdatePreferences, base::ListValue)
-
 // Sent by renderer to set the temporary zoom level.
 IPC_SYNC_MESSAGE_ROUTED1_1(AtomFrameHostMsg_SetTemporaryZoomLevel,
                            double /* zoom level */,
