@@ -88,13 +88,11 @@ describe('crashReporter module', () => {
 
             if (process.platform === 'win32') {
               const crashServiceProcess = childProcess.spawn(process.execPath, [
+                '--type=crash-handler',
                 `--reporter-url=http://127.0.0.1:${port}`,
                 '--application-name=Zombies',
                 `--crashes-directory=${crashesDir}`
               ], {
-                env: {
-                  ELECTRON_INTERNAL_CRASH_SERVICE: 1
-                },
                 detached: true
               })
               remote.process.crashServicePid = crashServiceProcess.pid
