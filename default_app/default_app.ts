@@ -1,4 +1,4 @@
-import { app, dialog, BrowserWindow, shell, ipcMain, crashReporter } from 'electron'
+import { app, dialog, BrowserWindow, shell, ipcMain } from 'electron'
 import * as path from 'path'
 
 let mainWindow: BrowserWindow | null = null
@@ -47,13 +47,6 @@ ipcMain.on('bootstrap', (event) => {
 
 async function createWindow () {
   await app.whenReady()
-
-  crashReporter.start({
-    productName: 'ELECTRON_CRASHER',
-    companyName: 'ELECTRONCOMPANY',
-    submitURL: 'https://google.com/crashpad',
-    uploadToServer: false
-  })
 
   const options: Electron.BrowserWindowConstructorOptions = {
     width: 900,
